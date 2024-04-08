@@ -1,0 +1,58 @@
+body{
+    color: red;
+
+}
+#content {
+    background-color: red;
+    color: red;
+    height: auto;
+    width:auto;
+    display: grid;
+    grid-template-columns: repeat(3, 100px); /* Définit 3 colonnes de 100px chacune */
+    grid-template-rows: repeat(3, 100px); /* Définit 3 lignes de 100px chacune */
+    gap: 5px; /* Espacement entre les cellules */
+    grid-template-areas: 
+    "cell-0 cell-1 cell-2"
+    "cell-3 cell-4 cell-5"
+    "cell-6 cell-7 cell-8";
+}
+
+#content .cell {
+    border: 2px solid black; /* Ajoute une bordure noire de 2px autour de chaque cellule */
+}
+
+#cell-0 {
+    background-color: blue;
+}
+
+#cell-1 {
+    background-color: red;
+}
+
+#cell-2 {
+    background-color: green;
+}
+
+#cell-3 {
+    background-color: yellow;
+}
+
+#cell-4 {
+    background-color: orange;
+}
+
+#cell-5 {
+    background-color: purple;
+}
+
+#cell-6 {
+    background-color: pink;
+}
+
+#cell-7 {
+    background-color: cyan;
+}
+
+#cell-8 {
+    background-color: magenta;
+}
