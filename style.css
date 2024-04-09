@@ -1,58 +1,128 @@
-body{
-    color: red;
-
+main {
+  display: flex;
+  justify-content: center; /* Centre le contenu horizontalement */
+  align-items: center; /* Centre le contenu verticalement */
 }
+
 #content {
-    background-color: red;
-    color: red;
-    height: auto;
-    width:auto;
-    display: grid;
-    grid-template-columns: repeat(3, 100px); /* Définit 3 colonnes de 100px chacune */
-    grid-template-rows: repeat(3, 100px); /* Définit 3 lignes de 100px chacune */
-    gap: 5px; /* Espacement entre les cellules */
-    grid-template-areas: 
-    "cell-0 cell-1 cell-2"
-    "cell-3 cell-4 cell-5"
-    "cell-6 cell-7 cell-8";
+  display: grid;
+  grid-template-columns: repeat(
+    3,
+    100px
+  ); /* Définit 3 colonnes de 100px chacune */
+  grid-template-rows: repeat(3, 100px); /* Définit 3 lignes de 100px chacune */
+  gap: 5px; /* Espacement entre les cellules */
+  grid-template-areas:
+    "cell-1 cell-2 cell-3"
+    "cell-4 cell-5 cell-6"
+    "cell-7 cell-8 cell-0";
 }
 
-#content .cell {
-    border: 2px solid black; /* Ajoute une bordure noire de 2px autour de chaque cellule */
-}
-
-#cell-0 {
-    background-color: blue;
+.cell {
+  display: flex;
+  justify-content: center; /* Alignement horizontal */
+  align-items: center; /* Alignement vertical */
+  width: 100px; /* Définit la largeur de chaque cellule à 100px */
+  height: 100px; /* Définit la hauteur de chaque cellule à 100px */
+  border-radius: 10px;
+  border: 3px solid black;
+  font-size: 4em; /* Taille de la police proportionnelle à la taille de la case */
 }
 
 #cell-1 {
-    background-color: red;
+  background-color: red;
 }
 
 #cell-2 {
-    background-color: green;
+  background-color: green;
 }
 
 #cell-3 {
-    background-color: yellow;
+  background-color: yellow;
 }
 
 #cell-4 {
-    background-color: orange;
+  background-color: orange;
 }
 
 #cell-5 {
-    background-color: purple;
+  background-color: purple;
 }
 
 #cell-6 {
-    background-color: pink;
+  background-color: slateblue;
 }
 
 #cell-7 {
-    background-color: cyan;
+  background-color: cyan;
 }
 
 #cell-8 {
-    background-color: magenta;
+  background-color: blue;
+}
+
+#cell-0 {
+  border: inherit;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffb6c1; /* La couleur de fond approximative de votre capture d'écran */
+  margin: 0;
+  padding: 0;
+}
+
+.menu {
+  text-align: center;
+  background-color: #fff; /* Un fond blanc pour le menu */
+  padding: 10px 0;
+  margin-bottom: 10px;
+}
+
+.menu a {
+  margin: 0 5px;
+  padding: 5px 10px;
+  display: inline-block;
+  background-color: #f1f1f1; /* Un fond gris clair pour chaque option du menu */
+  border: 1px solid #ccc; /* Une bordure subtile */
+  border-radius: 5px;
+  text-decoration: none;
+  color: #333; /* Une couleur de texte foncée */
+  font-weight: bold;
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 200px; /* La largeur de votre barre latérale */
+  height: 100%;
+  background-color: #ffb6c1; /* La couleur de fond pour la barre latérale */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Une ombre pour donner de la profondeur */
+  padding: 20px;
+}
+
+.sidebar button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #f1f1f1; /* Fond gris clair pour les boutons */
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #333; /* Couleur de texte foncée */
+  cursor: pointer;
+}
+
+.sidebar button:hover {
+  background-color: #e7e7e7; /* Un changement de couleur au survol */
+}
+
+/* Ajout d'une couleur de fond et d'un style pour l'entête */
+.header {
+  background-color: #d76d77; /* couleur rose approximative de la barre latérale */
+  color: white;
+  padding: 20px;
+  font-size: 24px;
 }
