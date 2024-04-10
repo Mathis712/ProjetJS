@@ -1,21 +1,78 @@
-main {
-  display: flex;
+#gridContainer {
+  
   justify-content: center; /* Centre le contenu horizontalement */
   align-items: center; /* Centre le contenu verticalement */
+  border:3px solid black;
+  padding: 10px;
+  background-color: grey;
+  border-radius:10px;
 }
 
-#content {
+#timerContainer {
+  
+  justify-content: center; /* Centre le contenu horizontalement */
+  align-items: center; /* Centre le contenu verticalement */
+  border:2px solid black;
+  margin:10px;
+  padding:10px;
+  background-color: lightgrey;
+  border-radius:10px;
+}
+
+main{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#content3x3 {
   display: grid;
-  grid-template-columns: repeat(
-    3,
-    100px
-  ); /* Définit 3 colonnes de 100px chacune */
+  grid-template-columns: repeat(3, 100px); /* Définit 3 colonnes de 100px chacune */
   grid-template-rows: repeat(3, 100px); /* Définit 3 lignes de 100px chacune */
   gap: 5px; /* Espacement entre les cellules */
   grid-template-areas:
     "cell-1 cell-2 cell-3"
     "cell-4 cell-5 cell-6"
     "cell-7 cell-8 cell-0";
+}
+
+#content4x4 {
+  display: grid;
+  grid-template-columns: repeat(4, 100px); /* Définit 3 colonnes de 100px chacune */
+  grid-template-rows: repeat(4, 100px); /* Définit 3 lignes de 100px chacune */
+  gap: 5px; /* Espacement entre les cellules */
+  grid-template-areas:
+    "cell-1 cell-2 cell-3 cell-4"
+    "cell-5 cell-6 cell-7 cell 8"
+    "cell-9 cell-10 cell-11 cell-12"
+    "cell-13 cell-14 cell-15 cell-0";
+}
+
+#content5x5 {
+  display: grid;
+  grid-template-columns: repeat(5, 100px); /* Définit 5 colonnes de 100px chacune */
+  grid-template-rows: repeat(5, 100px); /* Définit 5 lignes de 100px chacune */
+  gap: 5px; /* Espacement entre les cellules */
+  grid-template-areas:
+    "cell-1 cell-2 cell-3 cell-4 cell-5"
+    "cell-6 cell-7 cell-8 cell-9 cell-10"
+    "cell-11 cell-12 cell-13 cell-14 cell-15"
+    "cell-16 cell-17 cell-18 cell-19 cell-20"
+    "cell-21 cell-22 cell-23 cell-24 cell-0";
+}
+
+#content6x6 {
+  display: grid;
+  grid-template-columns: repeat(6, 100px); /* Définit 6 colonnes de 100px chacune */
+  grid-template-rows: repeat(6, 100px); /* Définit 6 lignes de 100px chacune */
+  gap: 5px; /* Espacement entre les cellules */
+  grid-template-areas:
+    "cell-1 cell-2 cell-3 cell-4 cell-5 cell-6"
+    "cell-7 cell-8 cell-9 cell-10 cell-11 cell-12"
+    "cell-13 cell-14 cell-15 cell-16 cell-17 cell-18"
+    "cell-19 cell-20 cell-21 cell-22 cell-23 cell-24"
+    "cell-25 cell-26 cell-27 cell-28 cell-29 cell-30"
+    "cell-31 cell-32 cell-33 cell-34 cell-35 cell-0";
 }
 
 .cell {
@@ -29,39 +86,9 @@ main {
   font-size: 4em; /* Taille de la police proportionnelle à la taille de la case */
 }
 
-#cell-1 {
-  background-color: red;
-}
-
-#cell-2 {
-  background-color: green;
-}
-
-#cell-3 {
-  background-color: yellow;
-}
-
-#cell-4 {
-  background-color: orange;
-}
-
-#cell-5 {
-  background-color: purple;
-}
-
-#cell-6 {
-  background-color: slateblue;
-}
-
-#cell-7 {
-  background-color: cyan;
-}
-
-#cell-8 {
-  background-color: blue;
-}
-
+/* Styles pour les cellules de 0 à 35 */
 #cell-0 {
+  /* Style pour la case vide */
   border: inherit;
 }
 
@@ -92,7 +119,7 @@ body {
 }
 
 .sidebar {
-  position: fixed;
+  /*position: fixed;*/
   left: 0;
   top: 0;
   width: 200px; /* La largeur de votre barre latérale */
