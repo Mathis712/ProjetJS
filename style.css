@@ -6,6 +6,7 @@
   padding: 10px;
   background-color: grey;
   border-radius:10px;
+  justify-self: left;
 }
 
 #timerContainer {
@@ -17,13 +18,19 @@
   padding:10px;
   background-color: lightgrey;
   border-radius:10px;
+  width: 20px;
 }
 
 main{
-  display:flex;
+  /* display:flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap : 50px;
+  font-family : "JetBrains Mono",monospace;
+  
 }
 #content3x3 {
   display: grid;
@@ -93,7 +100,7 @@ main{
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "JetBrains Mono",monospace;
   background-color: #ffb6c1; /* La couleur de fond approximative de votre capture d'écran */
   margin: 0;
   padding: 0;
@@ -120,13 +127,18 @@ body {
 
 .sidebar {
   /*position: fixed;*/
-  left: 0;
-  top: 0;
-  width: 200px; /* La largeur de votre barre latérale */
-  height: 100%;
-  background-color: #ffb6c1; /* La couleur de fond pour la barre latérale */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 150px; /* La largeur de votre barre latérale */
+  background-color: #000000; /* La couleur de fond pour la barre latérale */
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Une ombre pour donner de la profondeur */
   padding: 20px;
+  justify-self: right;
+  height: auto;
+  margin: auto;
+  border-radius: 2px;
 }
 
 .sidebar button {
@@ -153,3 +165,118 @@ body {
   padding: 20px;
   font-size: 24px;
 }
+
+/* CSS */
+.button-30 {
+  align-items: center;
+  text-align: center;
+  appearance: none;
+  background-color: #FCFCFD;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395A;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+}
+
+.button-30:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.button-30:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.button-30:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+
+body * {
+  margin:0;
+  padding:0;
+}
+
+
+nav menuitem {
+  position:relative;
+  display:block;
+  opacity:0;
+  cursor:pointer;
+}
+
+nav menuitem > menu {
+  position: absolute;
+  pointer-events:none;
+}
+nav > menu { display:flex; }
+
+nav > menu > menuitem { pointer-events: all; opacity:1; }
+menu menuitem a { white-space:nowrap; display:block; }
+  
+menuitem:hover > menu {
+  pointer-events:initial;
+}
+menuitem:hover > menu > menuitem,
+menu:hover > menuitem{
+  opacity:1;
+}
+
+
+nav a {
+  background:#75F;
+  color:#FFF;
+  min-width:150px;
+  transition: background 0.5s, color 0.5s, transform 0.5s;
+  margin:0px 0px 6px 0px;
+  padding:20px 40px;
+  box-sizing:border-box;
+  border-radius:3px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+  position:relative;
+}
+
+nav > menu > menuitem > a + menu:after{
+  content: '';
+  position:absolute;
+  border:10px solid transparent;
+  border-top: 10px solid white;
+  left: 12px;
+  top: -40px;  
+}
+
+
+nav > menu > menuitem > menu > menuitem{
+  transition: transform 0.6s, opacity 0.6s;
+  transform:translateY(100%);
+  opacity:0;
+}
+nav > menu > menuitem:hover > menu > menuitem,
+nav > menu > menuitem.hover > menu > menuitem{
+  transform:translateY(0%);
+  opacity: 1;
+}
+
+
+
