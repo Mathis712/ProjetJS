@@ -21,14 +21,14 @@
 }
 
 main{
-  /* display:flex;
+  display:flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; */
-  display: grid;
+  align-items: center; 
+  /*display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap : 50px;
-  font-family : "JetBrains Mono",monospace;
+  font-family : "JetBrains Mono",monospace;*/
   
 }
 

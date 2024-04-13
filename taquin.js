@@ -172,7 +172,7 @@ export class Taquin {
             console.log("win");
             time.stop();
             let victoryMessage = document.createElement("div");
-            victoryMessage.innerHTML = "<div class=\"timerContainer\">C'est gagné !</div>";
+            victoryMessage.innerHTML = "<div id=\"timerContainer\">C'est gagné !</div>";
             let mainElement = document.querySelector('main');
             mainElement.appendChild(victoryMessage);
         }
