@@ -1,34 +1,35 @@
 #gridContainer {
-  
   justify-content: center; /* Centre le contenu horizontalement */
   align-items: center; /* Centre le contenu verticalement */
-  border:3px solid black;
+  border: 3px solid black;
   padding: 10px;
   background-color: grey;
-  border-radius:10px;
+  border-radius: 10px;
+  width:50%;
+  aspect-ratio: 1 / 1; /* Ratio de largeur:hauteur (ici, 1:1 pour un carré) */
 }
 
 #timerContainer {
-  
   justify-content: center; /* Centre le contenu horizontalement */
   align-items: center; /* Centre le contenu verticalement */
-  border:2px solid black;
-  margin:10px;
-  padding:10px;
+  border: 2px solid black;
+  margin: 10px;
+  padding: 10px;
   background-color: lightgrey;
-  border-radius:10px;
+  border-radius: 10px;
 }
 
-main{
-  display:flex;
+main {
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
 #content3x3 {
   display: grid;
-  grid-template-columns: repeat(3, 100px); /* Définit 3 colonnes de 100px chacune */
-  grid-template-rows: repeat(3, 100px); /* Définit 3 lignes de 100px chacune */
+  grid-template-columns: repeat(auto-fill, minmax(100px, 32%)); /* 3 colonnes de largeur égale */
+  grid-template-rows: repeat(auto-fill, minmax(100px, 32%)); /* 3 lignes de hauteur égale */
   gap: 5px; /* Espacement entre les cellules */
   grid-template-areas:
     "cell-1 cell-2 cell-3"
@@ -38,8 +39,8 @@ main{
 
 #content4x4 {
   display: grid;
-  grid-template-columns: repeat(4, 100px); /* Définit 3 colonnes de 100px chacune */
-  grid-template-rows: repeat(4, 100px); /* Définit 3 lignes de 100px chacune */
+  grid-template-columns: repeat(auto-fill, minmax(100px, 24.4%)); /* 4 colonnes de largeur égale */
+  grid-template-rows: repeat(auto-fill, minmax(100px, 24.4%)); /* 4 lignes de hauteur égale */
   gap: 5px; /* Espacement entre les cellules */
   grid-template-areas:
     "cell-1 cell-2 cell-3 cell-4"
@@ -50,8 +51,8 @@ main{
 
 #content5x5 {
   display: grid;
-  grid-template-columns: repeat(5, 100px); /* Définit 5 colonnes de 100px chacune */
-  grid-template-rows: repeat(5, 100px); /* Définit 5 lignes de 100px chacune */
+  grid-template-columns: repeat(auto-fill, minmax(100px, 20%)); /* 5 colonnes de largeur égale */
+  grid-template-rows: repeat(auto-fill, minmax(100px, 20%)); /* 5 lignes de hauteur égale */
   gap: 5px; /* Espacement entre les cellules */
   grid-template-areas:
     "cell-1 cell-2 cell-3 cell-4 cell-5"
@@ -63,8 +64,8 @@ main{
 
 #content6x6 {
   display: grid;
-  grid-template-columns: repeat(6, 100px); /* Définit 6 colonnes de 100px chacune */
-  grid-template-rows: repeat(6, 100px); /* Définit 6 lignes de 100px chacune */
+  grid-template-columns: repeat(auto-fill, minmax(100px, 16.666%)); /* 6 colonnes de largeur égale */
+  grid-template-rows: repeat(auto-fill, minmax(100px, 16.666%)); /* 6 lignes de hauteur égale */
   gap: 5px; /* Espacement entre les cellules */
   grid-template-areas:
     "cell-1 cell-2 cell-3 cell-4 cell-5 cell-6"
@@ -79,11 +80,10 @@ main{
   display: flex;
   justify-content: center; /* Alignement horizontal */
   align-items: center; /* Alignement vertical */
-  width: 100px; /* Définit la largeur de chaque cellule à 100px */
-  height: 100px; /* Définit la hauteur de chaque cellule à 100px */
+  aspect-ratio:1/1;
   border-radius: 10px;
   border: 3px solid black;
-  font-size: 4em; /* Taille de la police proportionnelle à la taille de la case */
+  font-size:500%; /* Taille de la police proportionnelle à la taille de la case */
 }
 
 /* Styles pour les cellules de 0 à 35 */
