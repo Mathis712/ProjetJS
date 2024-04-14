@@ -89,12 +89,6 @@ export class Taquin {
         // Mélanger la grille
         this.shuffle();
 
-        /*
-        // Vérifier si la grille est déjà résolue et mélanger à nouveau si c'est le cas
-        while (this.checkSolved()) {
-            this.shuffle();
-        }
-        */
     }
 
     update(mode) {
@@ -107,8 +101,14 @@ export class Taquin {
             if (mode === "withoutNumbers" && cell.style.backgroundImage && cell.style.backgroundImage !== 'none') {
                 cell.innerText = ''; // Effacer le texte s'il y en a un
             } else {
-                cell.innerText = tile.value === 0 ? '' : tile.value; // Mettre à jour le texte avec la valeur de la case
+                if (mode !== "withoutNumbers"){
+                    cell.innerText = tile.value === 0 ? '' : tile.value; // Mettre à jour le texte avec la valeur de la case
+                } else {
+                    cell.innerText= '';
+                }
+                
             }
+
         }
     }
 
@@ -180,6 +180,8 @@ export class Taquin {
 
                 if (this.grid.tab[i].coord[0] === tileToMoveX && this.grid.tab[i].coord[1] === tileToMoveY) {
                     this.move(this.grid.tab[i]);
+            
+                    
                 }
             }
             n++;

@@ -64,6 +64,7 @@ main{
     "cell-5 cell-6 cell-7 cell 8"
     "cell-9 cell-10 cell-11 cell-12"
     "cell-13 cell-14 cell-15 cell-0";
+  
 }
 
 #content5x5 {
@@ -301,37 +302,7 @@ nav > menu > menuitem.hover > menu > menuitem{
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   width: auto;
 }
-/* 
-#leaderboard h2 {
-  text-align: center;
-  margin-bottom: 30px;
-}
 
-.leaderboard-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
-  margin-bottom: 10px;
-  background-color: #ffffff;
-  border-radius: 8px;
-} */
-/* 
-.leaderboard-item .rank {
-  font-size: 24px;
-  font-weight: bold;
-  color: #333333;
-} */
-
-/* .leaderboard-item .name {
-  font-size: 18px;
-  color: #333333;
-} */
-
-/* .leaderboard-item .score {
-  font-size: 18px;
-  color: #333333;
-} */
 .dark-mode {
   background-color: #333;
   color: white;

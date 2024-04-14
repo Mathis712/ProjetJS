@@ -4,7 +4,6 @@ timerDisplay.id = "timer";
 
 let timerContainer = document.createElement("div");
 let chronotext = document.createElement('p');
-chronotext.textContent= 'Chrono : 0';
 timerContainer.appendChild(chronotext);
 timerContainer.id = "timerContainer";
 timerDisplay.innerText = "Chrono : 0:0:00 ";

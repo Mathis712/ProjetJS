@@ -1,4 +1,4 @@
-import { reset, loadRandomImage } from "./functions.js";
+import { reset } from "./functions.js";
 import { Taquin } from "./taquin.js";
 
 // Récupère une référence du bouton "Image aléatoire"
@@ -18,6 +18,38 @@ function getSize() {
 
 }
 
+export function loadRandomImage(size) {
+    let imageUrl = "toto.jpg"; // Chemin vers l'image (assurez-vous qu'il est correct)
+    let image = new Image();
+    image.onload = function () {
+        // Image chargée avec succès
+        let canvas = document.createElement('canvas');
+        canvas.width = image.width;
+        canvas.height = image.height;
+        let context = canvas.getContext('2d');
+        context.drawImage(image, 0, 0);
+        let imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+        let tileSize = Math.floor(image.width / size);
+        for (let i = 0; i < size; i++) {
+            for (let j = 0; j < size; j++) {
+                let tileCanvas = document.createElement('canvas');
+                tileCanvas.width = tileSize;
+                tileCanvas.height = tileSize;
+                let tileContext = tileCanvas.getContext('2d');
+                tileContext.putImageData(imageData, -j * tileSize, -i * tileSize);
+                let tileImage = tileCanvas.toDataURL(); // Convertit le contenu du canvas en URL de données (data URL)
+                let cell = document.getElementById(`cell-${i * size + j + 1}`);
+                cell.style.backgroundImage = `url(${tileImage})`;
+                cell.style.backgroundSize = 'cover';
+                //cell.innerText = ''; // Efface le texte
+            }
+        }
+    };
+    image.onerror = function () {
+        console.error("Erreur lors du chargement de l'image.");
+    };
+    image.src = imageUrl;
+}
 // Ajoute une classe spécifique aux cellules pour différencier celles contenant des morceaux d'image
 function addImageClassToCells() {
     let gridTiles = document.getElementsByClassName('cell');
@@ -106,6 +138,7 @@ let withoutNumbersButton = document.getElementById("withoutNumbers");
 withoutNumbersButton.addEventListener('click', function () {
 
     mode = "withoutNumbers";
+    loadRandomImage(size);
     reset(size, mode);
 
 });
@@ -137,73 +170,5 @@ darkModeToggle.addEventListener("click", function() {
         darkModeToggle.textContent = "Mode Sombre";
     }
 });
-
-
-
-
-// Mélanger la grille
-//shuffleGrid();
-
-
-
-
-
-/*
-// Fonction pour initialiser la grille dans le DOM en fonction de l'état actuel
-function updateGrid() {
-    console.log("rentre");
-    myGrid.innerHTML = '';
-
-    const gridTiles = myGrid.getElementsByClassName('cell'); // Sélectionnez les éléments avec la classe '.cell'
-
-    // Ajoutez l'écouteur d'événements en dehors de la boucle forEach
-    Array.from(gridTiles).forEach(gridTile => {
-        gridTile.addEventListener('click', function (event) {
-
-            let emptyTileX, emptyTileY;
-
-            for (let i = 0; i < gridState.length; i++) {
-                for (let j = 0; j < gridState[i].length; j++) {
-                    if (gridState[i][j] === 0) {
-                        emptyTileX = i;
-                        emptyTileY = j;
-                    }
-                }
-            }
-
-            for (let i = 0; i < gridState.length; i++) {
-                for (let j = 0; j < gridState[i].length; j++) {
-                    if (gridState[i][j] == gridTile.id.split('-')[1]) {
-                        console.log("avant");
-                        if ((i === emptyTileX - 1 && j === emptyTileY) || (i === emptyTileX + 1 && j === emptyTileY) || (i === emptyTileX && j === emptyTileY - 1) || (i === emptyTileX && j === emptyTileY + 1)) {
-                            console.log("apres");
-
-                            temp = gridState[i][j];
-                            gridState[i][j] = 0;
-                            gridState[emptyTileX][emptyTileY] = temp;
-                            updateGrid();
-                            // Démarrer le timer uniquement si ce n'est pas déjà démarré
-                            
-                            console.log("this");
-
-                            time.start();
-                        }
-
-                    }
-                }
-            }
-        });
-    });
-
-    // Appelez detectWin() en dehors de la boucle forEach
-    detectWin();
-
-
-}
-
-
-updateGrid(); // Assurez-vous d'initialiser d'abord la grille
-*/
-
 
 
