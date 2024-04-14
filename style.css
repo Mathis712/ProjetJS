@@ -1,90 +1,99 @@
 #gridContainer {
-  justify-content: center; /* Centre le contenu horizontalement */
-  align-items: center; /* Centre le contenu verticalement */
+  justify-content: center;
+  /* Centre le contenu horizontalement */
+  align-items: center;
+  /* Centre le contenu verticalement */
   border: 3px solid black;
   padding: 10px;
   background-color: grey;
   border-radius: 10px;
-  width:auto;
-  aspect-ratio: 1 / 1; /* Ratio de largeur:hauteur (ici, 1:1 pour un carré) */
+  width: auto;
+  height: auto;
+  padding: 20px;
 }
 
+
 #timerContainer {
-  justify-content: center; /* Centre le contenu horizontalement */
-  align-items: center; /* Centre le contenu verticalement */
+  justify-content: center;
+  /* Centre le contenu horizontalement */
+  align-items: center;
+  /* Centre le contenu verticalement */
   border: 2px solid black;
   margin: 10px;
   padding: 10px;
   background-color: lightgrey;
-  border-radius:10px;
+  border-radius: 10px;
   min-width: 90px;
 }
 
-#victoryMessageContainer{
-  justify-content: center; /* Centre le contenu horizontalement */
-  align-items: center; /* Centre le contenu verticalement */
-  border: 2px solid black;
-  margin: 10px;
-  padding: 10px;
-  background-color: lightgrey;
-  border-radius:10px;
-  width: 80px;
-}
-
-main{
-  display:flex;
+main {
+  display: flex;
   flex-direction: row;
   justify-content: space-around;
-  align-items: center; 
+  align-items: center;
   /*display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap : 50px;
   font-family : "JetBrains Mono",monospace;*/
-  
+
 }
 
 #content3x3 {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 32%)); /* 3 colonnes de largeur égale */
-  grid-template-rows: repeat(auto-fill, minmax(100px, 32%)); /* 3 lignes de hauteur égale */
-  gap: 5px; /* Espacement entre les cellules */
+  grid-template-columns: repeat(auto-fill, minmax(100px, 32%));
+  /* 3 colonnes de largeur égale */
+  grid-template-rows: repeat(auto-fill, minmax(100px, 32%));
+  /* 3 lignes de hauteur égale */
+  gap: 5px;
+  /* Espacement entre les cellules */
   grid-template-areas:
     "cell-1 cell-2 cell-3"
     "cell-4 cell-5 cell-6"
     "cell-7 cell-8 cell-0";
+  padding-right: 103px;
 }
 
 #content4x4 {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 24.4%)); /* 4 colonnes de largeur égale */
-  grid-template-rows: repeat(auto-fill, minmax(100px, 24.4%)); /* 4 lignes de hauteur égale */
-  gap: 5px; /* Espacement entre les cellules */
+  grid-template-columns: repeat(auto-fill, minmax(100px, 24.4%));
+  /* 4 colonnes de largeur égale */
+  grid-template-rows: repeat(auto-fill, minmax(100px, 24.4%));
+  /* 4 lignes de hauteur égale */
+  gap: 5px;
+  /* Espacement entre les cellules */
   grid-template-areas:
     "cell-1 cell-2 cell-3 cell-4"
     "cell-5 cell-6 cell-7 cell 8"
     "cell-9 cell-10 cell-11 cell-12"
     "cell-13 cell-14 cell-15 cell-0";
-  
+
 }
 
 #content5x5 {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 20%)); /* 5 colonnes de largeur égale */
-  grid-template-rows: repeat(auto-fill, minmax(100px, 20%)); /* 5 lignes de hauteur égale */
-  gap: 5px; /* Espacement entre les cellules */
+  grid-template-columns: repeat(auto-fill, minmax(100px, 20%));
+  /* 5 colonnes de largeur égale */
+  grid-template-rows: repeat(auto-fill, minmax(100px, 20%));
+  /* 5 lignes de hauteur égale */
+  gap: 5px;
+  /* Espacement entre les cellules */
   grid-template-areas:
     "cell-1 cell-2 cell-3 cell-4 cell-5"
     "cell-6 cell-7 cell-8 cell-9 cell-10"
     "cell-11 cell-12 cell-13 cell-14 cell-15"
     "cell-16 cell-17 cell-18 cell-19 cell-20"
     "cell-21 cell-22 cell-23 cell-24 cell-0";
+    padding-right: 27px;
 }
 
 #content6x6 {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 16.666%)); /* 6 colonnes de largeur égale */
-  grid-template-rows: repeat(auto-fill, minmax(100px, 16.666%)); /* 6 lignes de hauteur égale */
-  gap: 5px; /* Espacement entre les cellules */
+  grid-template-columns: repeat(auto-fill, minmax(100px, 16.666%));
+  /* 6 colonnes de largeur égale */
+  grid-template-rows: repeat(auto-fill, minmax(100px, 16.666%));
+  /* 6 lignes de hauteur égale */
+  gap: 5px;
+  /* Espacement entre les cellules */
   grid-template-areas:
     "cell-1 cell-2 cell-3 cell-4 cell-5 cell-6"
     "cell-7 cell-8 cell-9 cell-10 cell-11 cell-12"
@@ -92,18 +101,21 @@ main{
     "cell-19 cell-20 cell-21 cell-22 cell-23 cell-24"
     "cell-25 cell-26 cell-27 cell-28 cell-29 cell-30"
     "cell-31 cell-32 cell-33 cell-34 cell-35 cell-0";
+    padding-right: 35px;  
 }
 
 .cell {
   display: flex;
-  justify-content: center; /* Alignement horizontal */
-  align-items: center; /* Alignement vertical */
-  aspect-ratio:1/1;
+  justify-content: center;
+  /* Alignement horizontal */
+  align-items: center;
+  /* Alignement vertical */
+  aspect-ratio: 1/1;
   border-radius: 10px;
   border: 3px solid black;
-  font-size:500%; /* Taille de la police proportionnelle à la taille de la case */
-  color:white;
-  text-shadow: #000 4px 5px 4px;}
+  font-size: 500%;
+  /* Taille de la police proportionnelle à la taille de la case */
+}
 
 /* Styles pour les cellules de 0 à 35 */
 #cell-0 {
@@ -112,15 +124,17 @@ main{
 }
 
 body {
-  font-family: "JetBrains Mono",monospace;
-  background-color: #ffffff; /* La couleur de fond approximative de votre capture d'écran */
+  font-family: "JetBrains Mono", monospace;
+  background-color: #ffffff;
+  /* La couleur de fond approximative de votre capture d'écran */
   margin: 0;
   padding: 0;
 }
 
 .menu {
   text-align: center;
-  background-color: #fff; /* Un fond blanc pour le menu */
+  background-color: #fff;
+  /* Un fond blanc pour le menu */
   padding: 10px 0;
   margin-bottom: 10px;
 }
@@ -129,21 +143,28 @@ body {
   margin: 0 5px;
   padding: 5px 10px;
   display: inline-block;
-  background-color: #f1f1f1; /* Un fond gris clair pour chaque option du menu */
-  border: 1px solid #ccc; /* Une bordure subtile */
+  background-color: #f1f1f1;
+  /* Un fond gris clair pour chaque option du menu */
+  border: 1px solid #ccc;
+  /* Une bordure subtile */
   border-radius: 5px;
   text-decoration: none;
-  color: #333; /* Une couleur de texte foncée */
+  color: #333;
+  /* Une couleur de texte foncée */
   font-weight: bold;
 }
 
 .sidebar {
-  width: 200px; /* Ajuste la largeur de la barre latérale selon tes besoins */
-  background-color: #000000; /* Couleur de fond pour la barre latérale */
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Ombre */
+  width: 200px;
+  /* Ajuste la largeur de la barre latérale selon tes besoins */
+  background-color: #000000;
+  /* Couleur de fond pour la barre latérale */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  /* Ombre */
   padding: 20px;
   border-radius: 2px;
-  margin-right: 10px; /* Marge à droite pour séparer du contenu principal */
+  margin-right: 10px;
+  /* Marge à droite pour séparer du contenu principal */
 }
 
 .sidebar button {
@@ -151,21 +172,25 @@ body {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
-  background-color: #f1f1f1; /* Fond gris clair pour les boutons */
+  background-color: #f1f1f1;
+  /* Fond gris clair pour les boutons */
   border: none;
   border-radius: 5px;
   font-size: 16px;
-  color: #333; /* Couleur de texte foncée */
+  color: #333;
+  /* Couleur de texte foncée */
   cursor: pointer;
 }
 
 .sidebar button:hover {
-  background-color: #e7e7e7; /* Un changement de couleur au survol */
+  background-color: #e7e7e7;
+  /* Un changement de couleur au survol */
 }
 
 /* Ajout d'une couleur de fond et d'un style pour l'entête */
 .header {
-  background-color: #9ac9e9; /* couleur rose approximative de la barre latérale */
+  background-color: #9ac9e9;
+  /* couleur rose approximative de la barre latérale */
   color: white;
   padding: 20px;
   font-size: 24px;
@@ -180,12 +205,12 @@ body {
   background-color: #FCFCFD;
   border-radius: 4px;
   border-width: 0;
-  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
   box-sizing: border-box;
   color: #36395A;
   cursor: pointer;
   display: inline-flex;
-  font-family: "JetBrains Mono",monospace;
+  font-family: "JetBrains Mono", monospace;
   height: 48px;
   justify-content: center;
   line-height: 1;
@@ -195,12 +220,12 @@ body {
   padding-right: 16px;
   position: relative;
   text-decoration: none;
-  transition: box-shadow .15s,transform .15s;
+  transition: box-shadow .15s, transform .15s;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
   white-space: nowrap;
-  will-change: box-shadow,transform;
+  will-change: box-shadow, transform;
   font-size: 18px;
 }
 
@@ -219,68 +244,77 @@ body {
 }
 
 body * {
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
 }
 
 nav menuitem {
-  position:relative;
-  display:block;
-  opacity:0;
-  cursor:pointer;
+  position: relative;
+  display: block;
+  opacity: 0;
+  cursor: pointer;
 }
 
-nav menuitem > menu {
+nav menuitem>menu {
   position: absolute;
-  pointer-events:none;
+  pointer-events: none;
 }
 
-nav > menu { display:flex; }
-
-nav > menu > menuitem { pointer-events: all; opacity:1; }
-
-menu menuitem a { white-space:nowrap; display:block; }
-  
-menuitem:hover > menu {
-  pointer-events:initial;
+nav>menu {
+  display: flex;
 }
 
-menuitem:hover > menu > menuitem,
-menu:hover > menuitem{
-  opacity:1;
+nav>menu>menuitem {
+  pointer-events: all;
+  opacity: 1;
+}
+
+menu menuitem a {
+  white-space: nowrap;
+  display: block;
+}
+
+menuitem:hover>menu {
+  pointer-events: initial;
+}
+
+menuitem:hover>menu>menuitem,
+menu:hover>menuitem {
+  opacity: 1;
 }
 
 nav a {
-  background:#75F;
-  color:#FFF;
-  min-width:150px;
+  background: #75F;
+  color: #FFF;
+  min-width: 200px;
   transition: background 0.5s, color 0.5s, transform 0.5s;
-  margin:0px 0px 6px 0px;
-  padding:20px 40px;
-  box-sizing:border-box;
-  border-radius:3px;
+  margin: 0px 0px 6px 0px;
+  padding: 20px 40px;
+  box-sizing: border-box;
+  border-radius: 3px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
-  position:relative;
+  position: relative;
 }
 
-nav > menu > menuitem > a + menu:after{
+nav>menu>menuitem>a+menu:after {
   content: '';
-  position:absolute;
-  border:10px solid transparent;
+  position: absolute;
+  border: 10px solid transparent;
   border-top: 10px solid white;
   left: 12px;
-  top: -40px;  
+  top: -40px;
 }
 
-nav > menu > menuitem > menu > menuitem{
+
+nav>menu>menuitem>menu>menuitem {
   transition: transform 0.6s, opacity 0.6s;
-  transform:translateY(100%);
-  opacity:0;
+  transform: translateY(100%);
+  opacity: 0;
 }
 
-nav > menu > menuitem:hover > menu > menuitem,
-nav > menu > menuitem.hover > menu > menuitem{
-  transform:translateY(0%);
+nav>menu>menuitem:hover>menu>menuitem,
+nav>menu>menuitem.hover>menu>menuitem {
+  transform: translateY(0%);
   opacity: 1;
 }
 
@@ -291,7 +325,8 @@ nav > menu > menuitem.hover > menu > menuitem{
 
 /* Ajoutez ces styles à votre fichier CSS existant ou créez un nouveau fichier CSS */
 .lead {
-  display: none; /* Cacher le div "lead" par défaut */
+  display: none;
+  /* Cacher le div "lead" par défaut */
 }
 
 
@@ -302,6 +337,21 @@ nav > menu > menuitem.hover > menu > menuitem{
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   width: auto;
 }
+
+#leaderboard th {
+  padding-left: 30px;
+  /* Espacement à gauche */
+  padding-right: 30px;
+  /* Espacement à droite */
+}
+
+#leaderboard td {
+  padding-left: 30px;
+  /* Espacement à gauche */
+  padding-right: 30px;
+  /* Espacement à droite */
+}
+
 
 .dark-mode {
   background-color: #333;
@@ -327,35 +377,4 @@ nav > menu > menuitem.hover > menu > menuitem{
 
 .dark-mode #timerContainer {
   color: black;
-}
-
-
-
-
-
-
-
-
-
-
-.leaderboard-container {
-  width: 80%; /* Largeur du cadre */
-  margin: 0 auto; /* Centre le cadre horizontalement */
-  padding: 20px; /* Ajoute un peu d'espace intérieur */
-  background-color: #f2f2f2; /* Couleur de fond */
-  border-radius: 10px; /* Coins arrondis */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre douce */
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-th, td {
-  padding: 8px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
-th {
-  background-color: #f2f2f2;
 }
