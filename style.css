@@ -5,7 +5,7 @@
   padding: 10px;
   background-color: grey;
   border-radius: 10px;
-  width:50%;
+  width:40%;
   aspect-ratio: 1 / 1; /* Ratio de largeur:hauteur (ici, 1:1 pour un carré) */
 }
 
@@ -17,12 +17,12 @@
   padding: 10px;
   background-color: lightgrey;
   border-radius:10px;
-  width: 20px;
+  width: 80px;
 }
 
 main{
   display:flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center; 
   /*display: grid;
@@ -100,7 +100,7 @@ main{
 
 body {
   font-family: "JetBrains Mono",monospace;
-  background-color: #ffb6c1; /* La couleur de fond approximative de votre capture d'écran */
+  background-color: #ffffff; /* La couleur de fond approximative de votre capture d'écran */
   margin: 0;
   padding: 0;
 }
@@ -125,19 +125,12 @@ body {
 }
 
 .sidebar {
-  /*position: fixed;*/
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 150px; /* La largeur de votre barre latérale */
-  background-color: #000000; /* La couleur de fond pour la barre latérale */
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Une ombre pour donner de la profondeur */
+  width: 200px; /* Ajuste la largeur de la barre latérale selon tes besoins */
+  background-color: #000000; /* Couleur de fond pour la barre latérale */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Ombre */
   padding: 20px;
-  justify-self: right;
-  height: auto;
-  margin: auto;
   border-radius: 2px;
+  margin-right: 10px; /* Marge à droite pour séparer du contenu principal */
 }
 
 .sidebar button {
@@ -159,10 +152,11 @@ body {
 
 /* Ajout d'une couleur de fond et d'un style pour l'entête */
 .header {
-  background-color: #d76d77; /* couleur rose approximative de la barre latérale */
+  background-color: #9ac9e9; /* couleur rose approximative de la barre latérale */
   color: white;
   padding: 20px;
   font-size: 24px;
+  text-align: center;
 }
 
 /* CSS */

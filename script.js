@@ -1,6 +1,31 @@
 import { reset } from "./functions.js";
+import { loadRandomImage } from "./functions.js"; // Importez la fonction loadRandomImage
 import { Taquin } from "./taquin.js";
 
+// Récupère une référence du bouton "Image aléatoire"
+let randomImageButton = document.querySelector("#demo1 button:last-of-type");
+
+// Ajoute un écouteur d'événements pour le clic sur le bouton "Image aléatoire"
+randomImageButton.addEventListener("click", function() {
+    size = getSize(); // Récupère la taille actuelle du taquin
+    loadRandomImage(size); // Charge une image aléatoire
+    reset(size, mode); // Réinitialise la grille
+});
+
+// Définir une fonction pour obtenir la taille actuelle du taquin
+function getSize() {
+
+    return size;
+}
+
+
+// Ajoute une classe spécifique aux cellules pour différencier celles contenant des morceaux d'image
+function addImageClassToCells() {
+    let gridTiles = document.getElementsByClassName('cell');
+    for (let tile of gridTiles) {
+        tile.classList.add("image-cell");
+    }
+}
 
 let size = 3;
 let mode = "classic";
@@ -141,9 +166,6 @@ function updateGrid() {
 
 updateGrid(); // Assurez-vous d'initialiser d'abord la grille
 */
-
-
-
 
 
 
