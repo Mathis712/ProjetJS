@@ -55,6 +55,11 @@ export class Taquin {
                 myTile.id = `cell-${tile.value}`;
                 myTile.className = "cell";
                 myTile.addEventListener('click', function () {
+                    var lastChild = timerContainer.firstElementChild;
+                    var count = timerContainer.childElementCount;
+                    if (count == 2) {
+                       timerContainer.removeChild(lastChild);
+                    }
                     time.start();
                     this.move(tile, mode);
                     this.detectWin();
@@ -68,7 +73,8 @@ export class Taquin {
         this.grid = grid;
         this.div = myGrid;
 
-        let mainElement = document.querySelector('main');
+        // let mainElement = document.querySelector('main');
+        let mainElement = document.getElementById('taquingrid');
 
         let gridContainer = document.getElementById("gridContainer");
         gridContainer.innerHTML = '';
@@ -193,11 +199,34 @@ export class Taquin {
         if (win) {
             console.log("win");
             time.stop();
-            let victoryMessage = document.createElement("div");
-            victoryMessage.innerHTML = "<div id=\"timerContainer\">C'est gagné !</div>";
-            let mainElement = document.querySelector('main');
-            mainElement.appendChild(victoryMessage);
+            // let victoryMessage = document.createElement("div");
+            let block = document.getElementById('taquingrid');
+            let winblock = document.createElement('div');
+            let wintext = document.createElement('p');
+            wintext.textContent = 'You Won !';
+            winblock.appendChild(wintext);
+            winblock.setAttribute('id', 'timerContainer');
+            block.appendChild(winblock);
+            // victoryMessage.innerHTML = "<div id=\"timerContainer\">C'est gagné !</div>";
+            // let mainElement = document.querySelector('main');
+            // mainElement.appendChild(victoryMessage);
+
+            let input = document.createElement('input');
+            input.setAttribute('placeholder', 'Enter Your username');
+            input.setAttribute('type', 'text');
+            input.setAttribute('id', 'userID');
+            block.appendChild(input);
+            
+            let button = document.createElement('button');
+            button.setAttribute('id', 'saveBUT');
+            button.textContent = 'Submit';
+            button.onclick = save;
+            block.appendChild(button);
+            
         }
     }
 
 }
+
+
+

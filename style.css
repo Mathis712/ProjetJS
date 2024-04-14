@@ -5,7 +5,7 @@
   padding: 10px;
   background-color: grey;
   border-radius: 10px;
-  width:40%;
+  width:auto;
   aspect-ratio: 1 / 1; /* Ratio de largeur:hauteur (ici, 1:1 pour un carré) */
 }
 
@@ -17,13 +17,13 @@
   padding: 10px;
   background-color: lightgrey;
   border-radius:10px;
-  width: 80px;
+  min-width: 90px;
 }
 
 main{
   display:flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center; 
   /*display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -271,6 +271,55 @@ nav > menu > menuitem.hover > menu > menuitem{
   opacity: 1;
 }
 
+.leaderbord {
+  width: 100% !important;
+}
+
+
+/* Ajoutez ces styles à votre fichier CSS existant ou créez un nouveau fichier CSS */
+.lead {
+  display: none; /* Cacher le div "lead" par défaut */
+}
+
+
+#leaderboard {
+  background-color: #f7f7f7;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  width: auto;
+}
+/* 
+#leaderboard h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.leaderboard-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #ffffff;
+  border-radius: 8px;
+} */
+/* 
+.leaderboard-item .rank {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333333;
+} */
+
+/* .leaderboard-item .name {
+  font-size: 18px;
+  color: #333333;
+} */
+
+/* .leaderboard-item .score {
+  font-size: 18px;
+  color: #333333;
+} */
 .dark-mode {
   background-color: #333;
   color: white;
@@ -289,4 +338,11 @@ nav > menu > menuitem.hover > menu > menuitem{
   color: white;
 }
 
+.dark-mode .leaderbord {
+  color: black;
+}
+
+.dark-mode #timerContainer {
+  color: black;
+}
 

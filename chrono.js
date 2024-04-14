@@ -3,15 +3,20 @@ let timerDisplay = document.createElement("div");
 timerDisplay.id = "timer";
 
 let timerContainer = document.createElement("div");
+let chronotext = document.createElement('p');
+chronotext.textContent= 'Chrono : 0';
+timerContainer.appendChild(chronotext);
 timerContainer.id = "timerContainer";
+
 timerContainer.appendChild(timerDisplay);
 
-let mainElement = document.querySelector('main');
+let mainElement = document.getElementById('taquingrid');
+// let mainElement = document.querySelector('main');
 mainElement.appendChild(timerContainer);
 
 
 
-export let time = {
+export let time = {   
     minutes: 0,
     secondes: 0,
     milliSecondes: 0,
@@ -57,8 +62,11 @@ export let time = {
     initialTimer: function () {
         this.setTime(0, 0, 0);
         this.updateTime();
+        
     }
 }
 
 time.initialTimer();
 time.updateTime();
+
+
