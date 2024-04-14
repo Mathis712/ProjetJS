@@ -124,3 +124,84 @@ let mainElement = document.querySelector('main');
 mainElement.appendChild(gridContainer);
 let taquin = new Taquin(3)
 
+let darkModeToggle = document.getElementById("darkModeToggle");
+let bodyElement = document.body;
+
+darkModeToggle.addEventListener("click", function() {
+    bodyElement.classList.toggle("dark-mode");
+    if (bodyElement.classList.contains("dark-mode")) {
+        darkModeToggle.textContent = "Mode Clair";
+    } else {
+        darkModeToggle.textContent = "Mode Sombre";
+    }
+});
+
+
+
+
+// Mélanger la grille
+//shuffleGrid();
+
+
+
+
+
+/*
+// Fonction pour initialiser la grille dans le DOM en fonction de l'état actuel
+function updateGrid() {
+    console.log("rentre");
+    myGrid.innerHTML = '';
+
+    const gridTiles = myGrid.getElementsByClassName('cell'); // Sélectionnez les éléments avec la classe '.cell'
+
+    // Ajoutez l'écouteur d'événements en dehors de la boucle forEach
+    Array.from(gridTiles).forEach(gridTile => {
+        gridTile.addEventListener('click', function (event) {
+
+            let emptyTileX, emptyTileY;
+
+            for (let i = 0; i < gridState.length; i++) {
+                for (let j = 0; j < gridState[i].length; j++) {
+                    if (gridState[i][j] === 0) {
+                        emptyTileX = i;
+                        emptyTileY = j;
+                    }
+                }
+            }
+
+            for (let i = 0; i < gridState.length; i++) {
+                for (let j = 0; j < gridState[i].length; j++) {
+                    if (gridState[i][j] == gridTile.id.split('-')[1]) {
+                        console.log("avant");
+                        if ((i === emptyTileX - 1 && j === emptyTileY) || (i === emptyTileX + 1 && j === emptyTileY) || (i === emptyTileX && j === emptyTileY - 1) || (i === emptyTileX && j === emptyTileY + 1)) {
+                            console.log("apres");
+
+                            temp = gridState[i][j];
+                            gridState[i][j] = 0;
+                            gridState[emptyTileX][emptyTileY] = temp;
+                            updateGrid();
+                            // Démarrer le timer uniquement si ce n'est pas déjà démarré
+                            
+                            console.log("this");
+
+                            time.start();
+                        }
+
+                    }
+                }
+            }
+        });
+    });
+
+    // Appelez detectWin() en dehors de la boucle forEach
+    detectWin();
+
+
+}
+
+
+updateGrid(); // Assurez-vous d'initialiser d'abord la grille
+*/
+
+
+
