@@ -3,6 +3,7 @@ Projet JS fin d'année : Taquin   Mory Mathis / Vico Robin / L'Hermitte Clément
 
 ## Description
 Taqu'ISEN est une application web qui propose un jeu de taquin interactif et personnalisable. Le but du jeu est de résoudre le puzzle soit en rangeant les cases dans l'ordre :
+
 [1,2,3]
 
 [4,5,6]
