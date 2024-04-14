@@ -289,6 +289,16 @@ nav > menu > menuitem.hover > menu > menuitem{
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   width: auto;
 }
+
+#leaderboard th {
+  padding-left: 30px; /* Espacement à gauche */
+  padding-right: 30px; /* Espacement à droite */
+}
+
+#leaderboard td {
+  padding-left: 30px; /* Espacement à gauche */
+  padding-right: 30px; /* Espacement à droite */
+}
 /* 
 #leaderboard h2 {
   text-align: center;
