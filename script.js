@@ -120,7 +120,9 @@ withoutImageButton.addEventListener('click', function () {
 
 let gridContainer = document.createElement("div");
 gridContainer.id = "gridContainer";
-let mainElement = document.querySelector('main');
+// let gridContainer = document.getElementById('gridContainer');   
+// let mainElement = document.querySelector('main');
+let mainElement= document.getElementById('taquingrid');
 mainElement.appendChild(gridContainer);
 let taquin = new Taquin(3)
 
