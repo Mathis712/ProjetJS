@@ -13,7 +13,7 @@ Taqu'ISEN est une application web qui propose un jeu de taquin interactif et per
   - Image Aléatoire : Jouez avec une image de fond aléatoire choisie par le système.
 - **Chronomètre** : Un chronomètre intégré qui mesure le temps écoulé depuis le début du jeu jusqu'à la résolution de la grille.
 - **Rejouer** : Les joueurs peuvent redémarrer le jeu à tout moment pour tenter d'améliorer leur temps.
-- **Leaderboard** : Les joueurs peuvent voir leur classement dans le leaderboard. Ce classement est déterminé en fonction du meilleur chrono.
+- **Leaderboard** : Après avoir gagné une partie, le joueur peut entrer son nom pour sauvegarder son score dans le leaderboard. Les scores sont triés dans l'ordre. Ce classement est déterminé en fonction du meilleur chrono.
 
 ## Difficultés Rencontrées
 
