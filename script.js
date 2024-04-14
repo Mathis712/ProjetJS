@@ -86,28 +86,43 @@ let _6x6button = document.getElementById("6x6");
 
 // Ajoute un écouteur d'événement à chaque bouton
 _3x3button.addEventListener("click", function () {
-
     size = 3;
+    if (mode === "withoutNumbers") {
+        loadRandomImage(size);
+        
+    }
     reset(size, mode);
 });
 
 _4x4button.addEventListener("click", function () {
+    
     size = 4;
-
+    if (mode === "withoutNumbers") {
+        loadRandomImage(size);
+        
+    }
     reset(size, mode);
 
 });
 
 _5x5button.addEventListener("click", function () {
-
+    
     size = 5;
+    if (mode === "withoutNumbers") {
+        loadRandomImage(size);
+        
+    }
     reset(size, mode);
 
 });
 
 _6x6button.addEventListener("click", function () {
-
+    
     size = 6;
+    if (mode === "withoutNumbers") {
+        loadRandomImage(size);
+        
+    }
     reset(size, mode);
 
 });
@@ -119,6 +134,10 @@ _6x6button.addEventListener("click", function () {
 let replayButton = document.getElementById("replay");
 replayButton.addEventListener('click', function () {
 
+    if (mode === "withoutNumbers") {
+        loadRandomImage(size);
+        
+    }
     reset(size, mode);
 
 });
