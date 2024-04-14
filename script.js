@@ -5,7 +5,7 @@ import { Taquin } from "./taquin.js";
 let randomImageButton = document.querySelector("#demo1 button:last-of-type");
 
 // Ajoute un écouteur d'événements pour le clic sur le bouton "Image aléatoire"
-randomImageButton.addEventListener("click", function() {
+randomImageButton.addEventListener("click", function () {
     size = getSize(); // Récupère la taille actuelle du taquin
     loadRandomImage(size); // Charge une image aléatoire
     reset(size, mode); // Réinitialise la grille
@@ -83,7 +83,6 @@ let _3x3button = document.getElementById("3x3");
 let _4x4button = document.getElementById("4x4");
 let _5x5button = document.getElementById("5x5");
 let _6x6button = document.getElementById("6x6");
-let leaderboardButton = document.getElementById("leaderboard");
 
 // Ajoute un écouteur d'événement à chaque bouton
 _3x3button.addEventListener("click", function () {
@@ -93,7 +92,7 @@ _3x3button.addEventListener("click", function () {
 });
 
 _4x4button.addEventListener("click", function () {
-size = 4;
+    size = 4;
 
     reset(size, mode);
 
@@ -113,11 +112,9 @@ _6x6button.addEventListener("click", function () {
 
 });
 
-leaderboardButton.addEventListener("click", function () {
 
-    
 
-});
+
 
 let replayButton = document.getElementById("replay");
 replayButton.addEventListener('click', function () {
@@ -155,14 +152,14 @@ let gridContainer = document.createElement("div");
 gridContainer.id = "gridContainer";
 // let gridContainer = document.getElementById('gridContainer');   
 // let mainElement = document.querySelector('main');
-let mainElement= document.getElementById('taquingrid');
+let mainElement = document.getElementById('taquingrid');
 mainElement.appendChild(gridContainer);
 let taquin = new Taquin(3)
 
 let darkModeToggle = document.getElementById("darkModeToggle");
 let bodyElement = document.body;
 
-darkModeToggle.addEventListener("click", function() {
+darkModeToggle.addEventListener("click", function () {
     bodyElement.classList.toggle("dark-mode");
     if (bodyElement.classList.contains("dark-mode")) {
         darkModeToggle.textContent = "Mode Clair";

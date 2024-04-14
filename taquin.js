@@ -7,6 +7,7 @@ export class Tile {
         this.value = value;
         this.color = color;
         this.image = image;
+        this.id = value;
     }
 
 }
@@ -63,7 +64,7 @@ export class Taquin {
                     var lastChild = timerContainer.firstElementChild;
                     var count = timerContainer.childElementCount;
                     if (count == 2) {
-                       timerContainer.removeChild(lastChild);
+                        timerContainer.removeChild(lastChild);
                     }
                     time.start();
                     this.move(tile, mode);
@@ -101,33 +102,17 @@ export class Taquin {
             if (mode === "withoutNumbers" && cell.style.backgroundImage && cell.style.backgroundImage !== 'none') {
                 cell.innerText = ''; // Effacer le texte s'il y en a un
             } else {
-                if (mode !== "withoutNumbers"){
+                if (mode !== "withoutNumbers") {
                     cell.innerText = tile.value === 0 ? '' : tile.value; // Mettre à jour le texte avec la valeur de la case
                 } else {
-                    cell.innerText= '';
+                    cell.innerText = '';
                 }
-                
+
             }
 
         }
     }
 
-    /*
-    checkSolved() {
-        // Récupérer les valeurs de toutes les cases dans un tableau
-        const values = this.grid.tab.map(tile => tile.value);
-
-        // Vérifier si les valeurs sont triées dans l'ordre croissant
-        for (let i = 0; i < values.length - 1; i++) {
-            if (values[i] !== i + 1) {
-                // Si une valeur n'est pas à sa place attendue, la grille n'est pas résolue
-                return false;
-            }
-        }
-        // Si toutes les valeurs sont à leur place attendue, la grille est résolue
-        return true;
-    }
-    */
 
     move(tileToMove, mode) {
         for (let i = 0; i < this.grid.tab.length; i++) {
@@ -143,6 +128,11 @@ export class Taquin {
                 let tempValue = tile.value;
                 tile.value = tileToMove.value;
                 tileToMove.value = tempValue;
+
+                // Échange des id
+                let tempId = tile.id;
+                tile.id = tileToMove.id;
+                tileToMove.id = tempId;
 
                 // Échange des div dans this.div
                 let cell1 = document.getElementById(`cell-${tile.value}`);
@@ -180,8 +170,8 @@ export class Taquin {
 
                 if (this.grid.tab[i].coord[0] === tileToMoveX && this.grid.tab[i].coord[1] === tileToMoveY) {
                     this.move(this.grid.tab[i]);
-            
-                    
+
+
                 }
             }
             n++;
@@ -202,10 +192,11 @@ export class Taquin {
         let n = 1;
         let win = true;
 
-        let divs = this.div.childNodes
-        for (let tile of divs) {
+        let tiles = this.grid.tab;
+        for (let tile of tiles) {
 
-            if (tile.innerText != n) {
+            console.log(tile);
+            if (tile.id != n) {
                 win = false;
                 break;
             }
@@ -231,13 +222,13 @@ export class Taquin {
             input.setAttribute('type', 'text');
             input.setAttribute('id', 'userID');
             block.appendChild(input);
-            
+
             let button = document.createElement('button');
             button.setAttribute('id', 'saveBUT');
             button.textContent = 'Submit';
             button.onclick = save;
             block.appendChild(button);
-            
+
         }
     }
 
