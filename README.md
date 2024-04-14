@@ -15,8 +15,6 @@ Taqu'ISEN est une application web qui propose un jeu de taquin interactif et per
 - **Rejouer** : Les joueurs peuvent redémarrer le jeu à tout moment pour tenter d'améliorer leur temps.
 - **Leaderboard** : Les joueurs peuvent voir leur classement dans le leaderboard. Ce classement est déterminé en fonction du meilleur chrono.
 
-![Mon Image](imgl.PNG"Voir mon image")
-
 ## Difficultés Rencontrées
 
 Au cours du développement de Taqu'ISEN, nous avons été confrontés à plusieurs difficultés, notamment :
