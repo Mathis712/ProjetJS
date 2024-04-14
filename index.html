@@ -1,162 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taqu'ISEN</title>
+    <link href="style.css" rel="stylesheet" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Taqu'ISEN</title>
-  <link href="style.css" rel="stylesheet" />
-</head>
-
-<body>
-  <header>
-    <div class="header">Taqu'ISEN</div>
-    <div class="menu">
-      <a href="#" id="3x3" class="grid-size-button selected" data-size="3">Taquin 3x3</a>
-      <a href="#" id="4x4" class="grid-size-button" data-size="4">Taquin 4x4</a>
-      <a href="#" id="5x5" class="grid-size-button" data-size="5">Taquin 5x5</a>
-      <a href="#" id="6x6" class="grid-size-button" data-size="6">Taquin 6x6</a>
-    </div>
-  </header>
-
-  <main>
-    <div class="sidebar">
-      <button id="replay" class="button-30">Rejouer</button>
-      <nav>
-        <menu>
-          <menuitem id="demo1">
-            <a>Options</a>
-            <menu>
-              <menuitem><button id="classic">Avec image</button></menuitem>
-              <menuitem><button id="withoutNumbers">Sans chiffres</button></menuitem>
-              <menuitem><button id="withoutImage">Standard</button></menuitem>
-            </menu>
-          </menuitem>
-        </menu>
-        <button id="darkModeToggle">Mode Sombre</button>
-      </nav>
-    </div>
-    
-    <div id="taquingrid">
-      <!-- Votre contenu généré par JavaScript ici -->
-    </div>
-    <div class="lead" style="display: none;">
-      <div class="savediv">
-        <!-- <input placeholder="Enter Your username" type="text" id="userID"> -->
-        <!-- <button id="saveBUT">Submit</button> -->
+  <body>
+    <header>
+      <div class="header">Taqu'ISEN</div>
+      <div class="menu">
+        <a href="#" id="3x3" class="grid-size-button selected" data-size="3"
+          >Taquin 3x3</a
+        >
+        <a href="#" id="4x4" class="grid-size-button" data-size="4"
+          >Taquin 4x4</a
+        >
+        <a href="#" id="5x5" class="grid-size-button" data-size="5"
+          >Taquin 5x5</a
+        >
+        <a href="#" id="6x6" class="grid-size-button" data-size="6"
+          >Taquin 6x6</a
+        >
       </div>
-      <div class="leaderbord">
-        <table id="leaderboard">
-          <thead>
-            <tr>
-              <th>Placement</th>
-              <th>Pseudo</th>
-              <th>Chrono</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
+    </header>
+
+    <main>
+      <div class="sidebar">
+        <button id="replay" class="button-30">Rejouer</button>
+        <nav>
+          <menu>
+            <menuitem id="demo1">
+              <a>Options</a>
+              <menu>
+                <menuitem><button id="classic">Avec image</button></menuitem>
+                <menuitem
+                  ><button id="withoutNumbers">Sans chiffres</button></menuitem
+                >
+                <menuitem><button id="withoutImage">Standard</button></menuitem>
+              </menu>
+            </menuitem>
+          </menu>
+          <button id="darkModeToggle">Mode Sombre</button>
+        </nav>
       </div>
-      
-    </div>
-    <button id="showLeaderboard" class="button-30">Show LeaderBoard</button>
-  </main>
 
-  <script>
-    // Récupérer l'élément où afficher les pseudos
-    // Récupérer l'élément où afficher les pseudos
-const leaderboardElement = document.querySelector(".leaderbord tbody");
+      <div id="taquingrid"></div>
+      <div class="lead" style="display: none">
+        <div class="savediv"></div>
+        <div class="leaderbord">
+          <table id="leaderboard">
+            <thead>
+              <tr>
+                <th>Placement</th>
+                <th>Pseudo</th>
+                <th>Chrono</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+      <button id="showLeaderboard" class="button-30">Show LeaderBoard</button>
+    </main>
 
-function loadLeaderboard() {
-  const leaderboard = localStorage.getItem("leaderboard");
-  if (leaderboard) {
-    const entries = leaderboard.split('\n');
-    const sortedEntries = entries
-        .filter(entry => entry.trim() !== '') // Supprimer les entrées vides
-        .map(entry => {
-            const [placement, userID, timeElapsed] = entry.split('\t'); // Assurez-vous que l'entrée est bien séparée par '\t'
-            return { placement, userID, timeElapsed };
-        })
-        .sort((a, b) => {
-            const timeA = convertTimeToMilliseconds(a.timeElapsed);
-            const timeB = convertTimeToMilliseconds(b.timeElapsed);
-            return timeA - timeB;
+    <script>
+      // Récupérer l'élément où afficher les pseudos
+      const leaderboardElement = document.querySelector(".leaderbord tbody");
+
+      // Fonction pour charger le classement
+      function loadLeaderboard() {
+        // Récupérer le classement depuis le stockage local
+        const leaderboard = localStorage.getItem("leaderboard");
+        // Vérifier si le classement existe
+        if (leaderboard) {
+          // Diviser le classement en entrées individuelles
+          const entries = leaderboard.split("\n");
+          // Filtrer les entrées vides
+          const sortedEntries = entries
+            .filter((entry) => entry.trim() !== "") // Supprimer les entrées vides
+            // Mapper chaque entrée en un objet avec placement, userID et temps écoulé
+            .map((entry) => {
+              const [placement, userID, timeElapsed] = entry.split("\t"); // Assurez-vous que l'entrée est bien séparée par '\t'
+              return { placement, userID, timeElapsed };
+            })
+            // Trier les entrées par temps écoulé
+            .sort((a, b) => {
+              const timeA = convertTimeToMilliseconds(a.timeElapsed);
+              const timeB = convertTimeToMilliseconds(b.timeElapsed);
+              return timeA - timeB;
+            });
+
+          // Construire la structure HTML du classement
+          leaderboardElement.innerHTML = ""; // Effacer le contenu existant
+          sortedEntries.forEach((entry, index) => {
+            const row = document.createElement("tr");
+
+            // Créer une cellule pour le rang
+            const rankCell = document.createElement("td");
+            rankCell.textContent = (index + 1).toString();
+            row.appendChild(rankCell);
+
+            // Créer une cellule pour le nom d'utilisateur
+            const nameCell = document.createElement("td");
+            nameCell.textContent = entry.userID;
+            row.appendChild(nameCell);
+
+            // Créer une cellule pour le temps écoulé
+            const scoreCell = document.createElement("td");
+            scoreCell.textContent = entry.timeElapsed;
+            row.appendChild(scoreCell);
+
+            // Ajouter la ligne au tableau
+            leaderboardElement.appendChild(row);
+          });
+        }
+      }
+
+      // Fonction pour convertir le temps écoulé en millisecondes
+      function convertTimeToMilliseconds(timeElapsed) {
+        if (timeElapsed) {
+          const [minutes, seconds, milliseconds] = timeElapsed
+            .split(":")
+            .map(Number);
+          return minutes * 60000 + seconds * 1000 + milliseconds;
+        } else {
+          return 0;
+        }
+      }
+
+      // Fonction pour sauvegarder le score dans le classement
+      function save() {
+        const userID = document.getElementById("userID").value;
+        const timeElapsed = document.getElementById("timer").innerText; // Récupérer le temps écoulé
+        const regex = /(\d+:\d+:\d+)/; // Expression régulière pour extraire le temps au format "0:00:00"
+        const match = timeElapsed.match(regex); // Correspondance avec l'expression régulière
+        // Vérifier si le temps écoulé est au bon format
+        if (match && match.length > 0) {
+          const newTimeElapsed = match[0]; // Extraire le temps écoulé sans "Chrono :"
+          const leaderboard = localStorage.getItem("leaderboard") || "";
+          const entries = leaderboard
+            .split("\n")
+            .filter((entry) => entry.trim() !== ""); // Séparer les entrées actuelles
+          // Créer une nouvelle entrée pour le classement
+          const newEntry = `${
+            entries.length + 1
+          }\t${userID}\t${newTimeElapsed}`; // Nouvelle entrée avec place, pseudo et temps
+          const newLeaderboard =
+            entries.length === 0 ? newEntry : `\n${newEntry}`; // Nouveau classement avec ou sans saut de ligne
+          // Mettre à jour le classement dans le stockage local
+          localStorage.setItem("leaderboard", leaderboard + newLeaderboard);
+          // Recharger le classement pour afficher les mises à jour
+          loadLeaderboard();
+        } else {
+          console.error("Le format du temps écoulé est incorrect.");
+        }
+      }
+
+      // Appeler loadLeaderboard lors du chargement de la page
+      window.onload = loadLeaderboard;
+
+      // Récupérer les éléments du DOM
+      const leadElement = document.querySelector(".lead");
+      const taquingridElement = document.getElementById("taquingrid");
+
+      // Ajouter un gestionnaire d'événements au bouton Show leaderBoard
+      document
+        .getElementById("showLeaderboard")
+        .addEventListener("click", function () {
+          if (leadElement.style.display === "none") {
+            leadElement.style.display = "block";
+            taquingridElement.style.display = "none";
+          } else {
+            leadElement.style.display = "none";
+            taquingridElement.style.display = "block";
+          }
         });
-    
-    // Construire la structure HTML du leaderboard
-    leaderboardElement.innerHTML = ''; // Effacer le contenu existant
-    sortedEntries.forEach((entry, index) => {
-      const row = document.createElement('tr');
-      
-      const rankCell = document.createElement('td');
-      rankCell.textContent = (index + 1).toString();
-      row.appendChild(rankCell);
-
-      const nameCell = document.createElement('td');
-      nameCell.textContent = entry.userID;
-      row.appendChild(nameCell);
-
-      const scoreCell = document.createElement('td');
-      scoreCell.textContent = entry.timeElapsed;
-      row.appendChild(scoreCell);
-
-      leaderboardElement.appendChild(row);
-    });
-  }
-}
-
-
-
-    function convertTimeToMilliseconds(timeElapsed) {
-      if (timeElapsed) {
-        const [minutes, seconds, milliseconds] = timeElapsed.split(':').map(Number);
-        return minutes * 60000 + seconds * 1000 + milliseconds;
-      } else {
-        return 0;
-      }
-    }
-
-// Fonction pour sauvegarder un nouveau pseudo et temps écoulé
-function save() {
-    const userID = document.getElementById("userID").value;
-    const timeElapsed = document.getElementById("timer").innerText; // Récupérer le temps écoulé
-    const regex = /(\d+:\d+:\d+)/; // Expression régulière pour extraire le temps au format "0:00:00"
-    const match = timeElapsed.match(regex); // Correspondance avec l'expression régulière
-    if (match && match.length > 0) {
-        const newTimeElapsed = match[0]; // Extraire le temps écoulé sans "Chrono :"
-        const leaderboard = localStorage.getItem("leaderboard") || "";
-        const entries = leaderboard.split('\n').filter(entry => entry.trim() !== ''); // Séparer les entrées actuelles
-        const newEntry = `${entries.length + 1}\t${userID}\t${newTimeElapsed}`; // Nouvelle entrée avec place, pseudo et temps
-        const newLeaderboard = entries.length === 0 ? newEntry : `\n${newEntry}`; // Nouveau leaderboard avec ou sans saut de ligne
-        localStorage.setItem("leaderboard", leaderboard + newLeaderboard); // Mettre à jour le leaderboard
-        loadLeaderboard(); // Recharger le leaderboard pour afficher les mises à jour
-    } else {
-        console.error("Le format du temps écoulé est incorrect.");
-    }
-}
-
-
-    // Appeler loadLeaderboard lors du chargement de la page
-    window.onload = loadLeaderboard;
-
-    const leadElement = document.querySelector('.lead');
-    const taquingridElement = document.getElementById('taquingrid');
-
-    // Ajouter un gestionnaire d'événements au bouton Show leaderBoard
-    document.getElementById('showLeaderboard').addEventListener('click', function() {
-      if (leadElement.style.display === 'none') {
-        leadElement.style.display = 'block';
-        taquingridElement.style.display = 'none';
-      } else {
-        leadElement.style.display = 'none';
-        taquingridElement.style.display = 'block';
-      }
-    });
-  </script>
-   <script type="module" src="script.js"></script>
-   <script type="module" src="functions.js"></script>
-   <script type="module" src="chrono.js"></script>
-   <script type="module" src="taquin.js"></script>
-</body>
-
+    </script>
+    <script type="module" src="script.js"></script>
+    <script type="module" src="functions.js"></script>
+    <script type="module" src="chrono.js"></script>
+    <script type="module" src="taquin.js"></script>
+  </body>
 </html>

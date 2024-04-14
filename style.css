@@ -31,10 +31,6 @@ main {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  /*display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap : 50px;
-  font-family : "JetBrains Mono",monospace;*/
 
 }
 
