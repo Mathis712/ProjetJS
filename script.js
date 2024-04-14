@@ -102,6 +102,20 @@ let mainElement = document.querySelector('main');
 mainElement.appendChild(gridContainer);
 let taquin = new Taquin(3)
 
+let darkModeToggle = document.getElementById("darkModeToggle");
+let bodyElement = document.body;
+
+darkModeToggle.addEventListener("click", function() {
+    bodyElement.classList.toggle("dark-mode");
+    if (bodyElement.classList.contains("dark-mode")) {
+        darkModeToggle.textContent = "Mode Clair";
+    } else {
+        darkModeToggle.textContent = "Mode Sombre";
+    }
+});
+
+
+
 
 // Mélanger la grille
 //shuffleGrid();
