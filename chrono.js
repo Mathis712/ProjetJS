@@ -4,6 +4,7 @@ timerDisplay.id = "timer";
 
 let timerContainer = document.createElement("div");
 timerContainer.id = "timerContainer";
+timerDisplay.innerText = "Chrono : 0:0:00 ";
 timerContainer.appendChild(timerDisplay);
 
 let mainElement = document.querySelector('main');
@@ -12,20 +13,26 @@ mainElement.appendChild(timerContainer);
 
 
 export let time = {
+
     minutes: 0,
     secondes: 0,
     milliSecondes: 0,
     timer: null,
+
     updateTime: function () {
         if (this.timer !== null) {
+            timerContainer.id = "timerContainer";
+
             timerDisplay.innerText = "Chrono : " + this.minutes + ":" + this.secondes + ":" + this.milliSecondes;
         }
     },
+
     setTime: function (minutesValue, secondesValue, milliSecondesValue) {
         this.minutes = minutesValue;
         this.secondes = secondesValue;
         this.milliSecondes = milliSecondesValue;
     },
+
     increaseTime: function () {
         this.milliSecondes++;
         if (this.milliSecondes > 99) {
@@ -37,6 +44,7 @@ export let time = {
             this.minutes++;
         }
     },
+
     start: function () {
         console.log("start");
 
@@ -47,6 +55,7 @@ export let time = {
             }, 10);
         }
     },
+
     stop: function () {
         if (this.timer !== null) {
             clearInterval(this.timer);
@@ -54,10 +63,12 @@ export let time = {
             console.log("stop");
         }
     },
+
     initialTimer: function () {
         this.setTime(0, 0, 0);
         this.updateTime();
     }
+
 }
 
 time.initialTimer();

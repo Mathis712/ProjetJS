@@ -20,6 +20,17 @@
   width: 80px;
 }
 
+#victoryMessageContainer{
+  justify-content: center; /* Centre le contenu horizontalement */
+  align-items: center; /* Centre le contenu verticalement */
+  border: 2px solid black;
+  margin: 10px;
+  padding: 10px;
+  background-color: lightgrey;
+  border-radius:10px;
+  width: 80px;
+}
+
 main{
   display:flex;
   flex-direction: row;
@@ -90,7 +101,8 @@ main{
   border-radius: 10px;
   border: 3px solid black;
   font-size:500%; /* Taille de la police proportionnelle à la taille de la case */
-}
+  color:white;
+  text-shadow: #000 4px 5px 4px;}
 
 /* Styles pour les cellules de 0 à 35 */
 #cell-0 {
@@ -205,12 +217,10 @@ body {
   transform: translateY(2px);
 }
 
-
 body * {
   margin:0;
   padding:0;
 }
-
 
 nav menuitem {
   position:relative;
@@ -223,19 +233,21 @@ nav menuitem > menu {
   position: absolute;
   pointer-events:none;
 }
+
 nav > menu { display:flex; }
 
 nav > menu > menuitem { pointer-events: all; opacity:1; }
+
 menu menuitem a { white-space:nowrap; display:block; }
   
 menuitem:hover > menu {
   pointer-events:initial;
 }
+
 menuitem:hover > menu > menuitem,
 menu:hover > menuitem{
   opacity:1;
 }
-
 
 nav a {
   background:#75F;
@@ -259,12 +271,12 @@ nav > menu > menuitem > a + menu:after{
   top: -40px;  
 }
 
-
 nav > menu > menuitem > menu > menuitem{
   transition: transform 0.6s, opacity 0.6s;
   transform:translateY(100%);
   opacity:0;
 }
+
 nav > menu > menuitem:hover > menu > menuitem,
 nav > menu > menuitem.hover > menu > menuitem{
   transform:translateY(0%);
@@ -273,3 +285,33 @@ nav > menu > menuitem.hover > menu > menuitem{
 
 
 
+
+
+
+
+
+
+
+
+
+.leaderboard-container {
+  width: 80%; /* Largeur du cadre */
+  margin: 0 auto; /* Centre le cadre horizontalement */
+  padding: 20px; /* Ajoute un peu d'espace intérieur */
+  background-color: #f2f2f2; /* Couleur de fond */
+  border-radius: 10px; /* Coins arrondis */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre douce */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+th {
+  background-color: #f2f2f2;
+}

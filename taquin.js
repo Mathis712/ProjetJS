@@ -1,14 +1,18 @@
 import { time } from "./chrono.js";
+
 export class Tile {
+
     constructor(coordX, coordY, value, color, image) {
         this.coord = [coordX, coordY];
         this.value = value;
         this.color = color;
         this.image = image;
     }
+
 }
 
 export class Grid {
+
     constructor(size) {
         this.size = size;
         this.tab = [];
@@ -36,6 +40,7 @@ export class Grid {
 }
 
 export class Taquin {
+
     constructor(size, mode) {
         this.size = size;
 
@@ -78,14 +83,13 @@ export class Taquin {
         // Mélanger la grille
         this.shuffle();
 
+        /*
         // Vérifier si la grille est déjà résolue et mélanger à nouveau si c'est le cas
         while (this.checkSolved()) {
             this.shuffle();
         }
+        */
     }
-
-
-
 
     update(mode) {
         // Parcourir toutes les cases de la grille
@@ -102,10 +106,11 @@ export class Taquin {
         }
     }
 
+    /*
     checkSolved() {
         // Récupérer les valeurs de toutes les cases dans un tableau
         const values = this.grid.tab.map(tile => tile.value);
-    
+
         // Vérifier si les valeurs sont triées dans l'ordre croissant
         for (let i = 0; i < values.length - 1; i++) {
             if (values[i] !== i + 1) {
@@ -116,7 +121,7 @@ export class Taquin {
         // Si toutes les valeurs sont à leur place attendue, la grille est résolue
         return true;
     }
-    
+    */
 
     move(tileToMove, mode) {
         for (let i = 0; i < this.grid.tab.length; i++) {
@@ -154,8 +159,6 @@ export class Taquin {
         }
     }
 
-    
-
     shuffle() {
 
         const numMoves = 10000; // Nombre de mouvements aléatoires
@@ -178,6 +181,16 @@ export class Taquin {
     }
 
     detectWin() {
+
+        let victoryMessage;
+        victoryMessage = document.getElementById("victoryMessageContainer");
+        if (victoryMessage == undefined) {
+            victoryMessage = document.createElement("div");
+
+        } else {
+            victoryMessage.remove();
+        }
+
         let n = 1;
         let win = true;
 
@@ -190,11 +203,12 @@ export class Taquin {
             }
             n = (n + 1) % (this.size * this.size);
         }
+        console.log(win);
         if (win) {
-            console.log("win");
             time.stop();
-            let victoryMessage = document.createElement("div");
-            victoryMessage.innerHTML = "<div id=\"timerContainer\">C'est gagné !</div>";
+
+
+            victoryMessage.innerHTML = "<div id=\"victoryMessageContainer\">C'est gagné !</div>";
             let mainElement = document.querySelector('main');
             mainElement.appendChild(victoryMessage);
         }
